@@ -4,7 +4,7 @@ from werkzeug.utils import redirect
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'#os.environ.get("DATABASE_URL")
 db = SQLAlchemy(app)
 app.config['SECRET_KEY'] = 'secret'
 
