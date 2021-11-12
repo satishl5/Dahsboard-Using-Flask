@@ -82,4 +82,4 @@ def delete(id):
         return "There was an issue deleting the user"
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
