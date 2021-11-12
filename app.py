@@ -4,9 +4,9 @@ from werkzeug.utils import redirect
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
 db = SQLAlchemy(app)
-app.secret_key = os.urandom(24)
+app.config['SECRET_KEY'] = 'secret'
 
 class Users(db.Model):
     __tablename__ = 'Users'
