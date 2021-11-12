@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Register</title>
+{% endblock %}
+
+{% block body %}
+
+
+<div class="col-5">
+  <br><br><br>
+    <div class="card  shadow-lg">
+      <h3 class="card-header text-center bg-dark text-white">Dashboard - Register</h3>
+        {% if msg %}
+          <div class="card-header alert alert-danger m-2" role="alert">
+            {{ msg }}
+          </div>
+        {% endif %}
+        <div class="card-body bg-light">
+            <form action="/register" method="POST">
+                <div class="col">
+                    <label for="inputName" class="p-2">User Name</label>
+                    <input type="text" class="form-control" placeholder="Enter Username" name="username" required minlength="5">
+                  </div>
+                  <div class="col">
+                    <label for="" class="p-2">Password</label>
+                    <input type="password" class="form-control" id="inputPassword4" placeholder="******" name="password" required minlength="8">
+                  </div>
+                  <div class="col">
+                    <label for="inputName" class="p-2">Email</label>
+                    <input type="email" class="form-control" placeholder="e.g. isatishkumar4008@gmail.com" name="email" required>
+                  </div>
+                  <div class="col">
+                    <label for="cityName" class="p-2">City Name</label>
+                    <input type="text" class="form-control" placeholder="e.g. Mandapeta" name="city" required minlength="1">
+                  </div>
+                  <br>
+                  
+                    <div class="col p-2">
+                        <button type="submit" class="btn btn-success form-control">Register</button>
+                    </div>
+                  
+            </form>
+            <div class="col p-2">
+              <a href="/"><button type="button" class="btn btn-warning form-control">Login</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

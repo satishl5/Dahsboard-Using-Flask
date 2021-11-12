@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Profile</title>
+{% endblock %}
+
+{% block body %}
+<div class="col-6">
+    <br><br><br>
+    <h3 class="card-header bg-dark text-white text-center">Admin Dashboard</h3>
+    {% if msg %}
+            <br>
+          <div class="card-header alert alert-danger m-2" role="alert">
+            {{ msg }}
+          </div>
+    {% endif %}
+    {% if users|length < 1 %}
+    <div class="card bg-light">
+            <h4 style="text-align: center;">No Users to Show</h4>
+            <br>
+    </div>
+    {% else %}
+    <table class="table table-light bg-light shadow-lg">
+        <tr>
+           <th>User ID</th>
+           <th>User Name</th>
+           <th>Email</th>
+           <th>City</th>
+           <th>Actions</th>
+        </tr>
+        {% for u in users %}
+        <tr>
+            <td>{{ u.id }}</td>
+            <td>{{ u.username }}</td>
+            <td>{{ u.email }}</td>
+            <td>{{ u.city }}</td>
+            <td><a href="/delete/{{u.id}}" title="Delete"><button class="btn" type="submit"><i class="fas fa-trash-alt"></i></button></a></td>
+        </tr>
+        {% endfor %}  
+    </table>
+    {% endif %}
+    <center><a href="/logout" title="Delete" class="text-center"><button class="btn btn-warning" type="button">Logout</button></a></center>
+</div>
+{% endblock %}
